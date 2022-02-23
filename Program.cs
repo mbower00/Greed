@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+// using System.IO;
+// using System.Linq;
 using cse210_greed.Game.Casting;
 using cse210_greed.Game.Directing;
 using cse210_greed.Game.Services;
@@ -25,6 +27,7 @@ namespace cse210_greed
         private static Color BANNER_WHITE = new Color(255, 255, 255, 150);
         private static int DEFAULT_GEMS = 20;
         private static int DEFAULT_ROCKS = 20;
+        private static int FALL_SPEED_CAP = 10;
 
         /// <summary>
         /// /// 
@@ -44,18 +47,18 @@ namespace cse210_greed
             cast.AddActor("banner", scoreBanner);
 
             Actor dialogueBanner = new Actor();
-            banner.SetText("");
-            banner.SetFontSize(FONT_SIZE);
-            banner.SetColor(BANNER_WHITE);
-            banner.SetPosition(new Location(CELL_SIZE, 0));
-            cast.AddActor("banner", banner);
+            dialogueBanner.SetText("");
+            dialogueBanner.SetFontSize(FONT_SIZE);
+            dialogueBanner.SetColor(BANNER_WHITE);
+            dialogueBanner.SetPosition(new Location(CELL_SIZE, 0));
+            cast.AddActor("banner", dialogueBanner);
 
             //create the robot
             Actor robot = new Actor();
             robot.SetText("#");
             robot.SetFontSize(FONT_SIZE);
-            banner.SetColor(WHITE);
-            banner.SetPosition(new Location(MAX_X / 2, MAX_Y));
+            robot.SetColor(WHITE);
+            robot.SetPosition(new Location(MAX_X / 2, MAX_Y));
             cast.AddActor("robot", robot);
 
             //create the gems
@@ -74,7 +77,9 @@ namespace cse210_greed
                 Color color = new Color(r, g, b, a);
 
                 Artifact artifact = new Artifact();
-                artifact.SetText("O");
+                artifact.SetFallSpeed(FALL_SPEED_CAP);
+                artifact.SetText("*");
+                artifact.SetPointValue("gem");
                 artifact.SetFontSize(FONT_SIZE);
                 artifact.SetColor(color);
                 artifact.SetPosition(position);
@@ -96,13 +101,21 @@ namespace cse210_greed
                 Color color = new Color(r, g, b, a);
 
                 Artifact artifact = new Artifact();
+                artifact.SetFallSpeed(FALL_SPEED_CAP);
                 artifact.SetText("O");
+                artifact.SetPointValue("rock");
                 artifact.SetFontSize(FONT_SIZE);
                 artifact.SetColor(color);
                 artifact.SetPosition(position);
-                artifact.SetMessage("rocks");
+                artifact.SetMessage("rock");
                 cast.AddActor("artifacts", artifact);
                 
             }
+            
+            KeyboardService keyboardService = new KeyboardService(CELL_SIZE);
+            VideoService videoService = new VideoService(CAPTION, MAX_X, MAX_Y, CELL_SIZE, FRAME_RATE);
+            Director director = new Director; 
+            director.StartGame(keyboardService, videoService);
+
         }
     }

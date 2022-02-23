@@ -1,4 +1,4 @@
-/*
+// /*
 using System.Collections.Generic;
 using Raylib_cs;
 using cse210_greed.Game.Casting;
@@ -12,18 +12,22 @@ namespace cse210_greed.Game.Services
     public class VideoService
     {
         private int cellSize = 15;
-        private string score = "";
+        private string caption = "";
         private int width = 640;
         private int height = 480;
         private int frameRate = 0;
         
 
         /// <summary>
-        ///
+        /// text
         /// </summary>
-        public VideoService()
+        public VideoService(string caption, int width, int height, int cellSize, int frameRate)
         {
-
+            this.caption = caption;
+            this.width = width;
+            this.height = height;
+            this.cellSize = cellSize;
+            this.frameRate = frameRate;
         }
 
         /// <summary>
@@ -34,26 +38,99 @@ namespace cse210_greed.Game.Services
             Raylib.CloseWindow();
         }
 
-        ///
-        ///
-        ///
+        /// <Summary>
+        /// text
+        /// </summary>
         public void ClearBuffer()
         {
             Raylib.BeginDrawing();
             Raylib.ClearBackground(Raylib_cs.Color.BLACK);
         }
 
-        ///
-        ///
-        ///
+        /// <Summary>
+        /// text
+        /// </summary>
         public void DrawActor(Actor actor)
         {
             int x = actor.GetPosistion().GetX();
             int y = actor.GetPosistion().GetY();
             int fontSize = actor.GetFontSize();
-            // Casting.Color c = ToRaylibColor(c);
+            Casting.Color c = actor.GetColor();
+            Raylib_cs.Color color = ToRaylibColor(c);
+            Raylib.DrawText(x, y, fontSize, color);
+        }
 
+        /// <Summary>
+        /// text
+        /// </summary>
+        public void DrawActors(List<Actor> actors)
+        {
+            foreach (Actor actor in actors)
+            {
+                DrawActor(actor);
+            }
+        }
+
+        /// <Summary>
+        /// text
+        /// </summary>
+        public void FlushBuffer()
+        {
+            Raylib.EndDrawing();
+        }
+
+        /// <Summary>
+        /// text
+        /// </summary>
+        public int GetCellSize()
+        {
+            return cellSize;
+        }
+        
+        /// <Summary>
+        /// text
+        /// </summary>
+        public int GetHeight()
+        {
+            return height;
+        }
+
+        /// <Summary>
+        /// text
+        /// </summary>
+        public int GetWidth()
+        {
+            return width;
+        }
+
+        /// <Summary>
+        /// text
+        /// </summary>
+        public bool IsWindowOpen()
+        {
+            return !Raylib.WindowShouldClose();
+        }
+
+        /// <Summary>
+        /// text
+        /// </summary>
+        public void OpenWindow()
+        {
+            Raylib.InitWindow(width, height, caption);
+            Raylib.SetTargetFPS(frameRate);
+        }
+
+        /// <Summary>
+        /// text
+        /// </summary>
+        private Raylib_cs.Color ToRaylibColor(Casting.Color color)
+        {
+            int r = color.GetRed();
+            int g = color.GetGreen();
+            int b = color.GetBlue();
+            int a = color.GetAlpha();
+            return new Raylib_cs.Color(r, g, b, a);
         }
     }
 }
-*/
+// */
