@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace cse210_greed.Game.Casting
 {
-    public class Color
+    public class Color ///setting all colors with values to be used privately
         {
             private int red = 0;
             private int green = 0;
@@ -12,7 +12,7 @@ namespace cse210_greed.Game.Casting
 
 
 
-            public Color (int red, int green, int blue, int alpha){
+            public Color (int red, int green, int blue, int alpha){ /// setting colors with names and their corresponding colors
                 this.red = red;
                 this.green = green;
                 this.blue = blue;
@@ -20,23 +20,23 @@ namespace cse210_greed.Game.Casting
 
             }
 
-            public int GetBlue(){
+            public int GetBlue(){ /// makes blue usable
                 return blue;
 
             }
 
-            public int GetGreen(){
+            public int GetGreen(){ /// makes green usable
                 return green;
 
             }
 
-            public int GetRed()
+            public int GetRed() /// makes red usable
     {
                 return red;
 
             }
 
-            public int GetAlpha(){
+            public int GetAlpha(){ /// makes alpha usable
                 return alpha;
 
             }
