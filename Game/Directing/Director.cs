@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using cse210_greed.Game.Casting;
 using cse210_greed.Game.Services;
 
-namespace Unit04.Game.Directing{
+namespace cse210_greed.Game.Directing{
     /// <summary>
     /// The person who directs the game.
     /// Responsibility: Control the steps of the game.
@@ -100,7 +100,7 @@ namespace Unit04.Game.Directing{
                     if(random.Next(0, artifact.GetFallSpeed() + 1) == 0){
                         //move the artifact down
                         artifact.SetVelocity(keyboardService.GetDirection("down"));
-                        artifact.MoveNext(maxX, maxY);
+                        artifact.GetNextPosition(maxX, maxY);
                     }
                         
                     isCaughtRecently = false;
@@ -110,7 +110,7 @@ namespace Unit04.Game.Directing{
             //update player's score to the score banner
             scoreBanner.SetText($"Score: {playerScore}");
             //move robot
-            robot.MoveNext(maxX, maxY);
+            robot.GetNextPosition(maxX, maxY);
         }
 
         /// <summary>

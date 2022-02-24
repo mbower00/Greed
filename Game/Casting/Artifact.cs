@@ -47,32 +47,35 @@ public int GetFallSpeed(){ ///makes fallpeed usable
  return pointValue;
  }
  public void SetMessage(string type){
-if (type == "rock" ){
-       List<string> rockMessage = new List<string>();   ///We will have a message display if they hit a rock and these wil be chosen at random to be displayed
+       if (type == "rock" ){
+              List<string> rockMessage = new List<string>();   ///We will have a message display if they hit a rock and these wil be chosen at random to be displayed
 
-       rockMessage.Add("Ouch!");
-       rockMessage.Add("Dang it!");
-       rockMessage.Add("I need to miss that!");
-       rockMessage.Add("That hurt!");
-       rockMessage.Add("Oof!");
-       rockMessage.Add("That hurt my soul");
-       rockMessage.Add("this person controlling me is gunna kill me!");
-       rockMessage.Add("My pride will never recover");
-       int newMessage = random.Next(rockMessage.Count);
-       message = rockMessage[newMessage]; /// sets message to get random phrase from hitting a rock
-}
-else if (type == "gem"){
-       List<string> gemMessage = new List<string>();   ///We will have a message display if they hit a gem and these wil be chosen at random to be displayed
+              rockMessage.Add("Ouch!");
+              rockMessage.Add("Dang it!");
+              rockMessage.Add("I need to miss that!");
+              rockMessage.Add("That hurt!");
+              rockMessage.Add("Oof!");
+              rockMessage.Add("That hurt my soul");
+              rockMessage.Add("this person controlling me is gunna kill me!");
+              rockMessage.Add("My pride will never recover");
+              int newMessage = random.Next(rockMessage.Count);
+              message = rockMessage[newMessage]; /// sets message to get random phrase from hitting a rock
+       }
+       else if (type == "gem"){
+              List<string> gemMessage = new List<string>();   ///We will have a message display if they hit a gem and these wil be chosen at random to be displayed
 
-       gemMessage.Add("Yay!");
-       gemMessage.Add("I'm rich!");
-       gemMessage.Add("Whoo hoo!");
-       gemMessage.Add("Dolla Dolla bills yall");
-       gemMessage.Add("This is going into crypto stock!");
-       gemMessage.Add("new whip here I come!");
-       int newMessage = random.Next(gemMessage.Count);
-       message = gemMessage[newMessage];  /// sets message to get random phrase from collecting a gem
-}
+              gemMessage.Add("Yay!");
+              gemMessage.Add("I'm rich!");
+              gemMessage.Add("Whoo hoo!");
+              gemMessage.Add("Dolla Dolla bills yall");
+              gemMessage.Add("This is going into crypto stock!");
+              gemMessage.Add("new whip here I come!");
+              int newMessage = random.Next(gemMessage.Count);
+              message = gemMessage[newMessage];  /// sets message to get random phrase from collecting a gem
+       }
+       else{
+              Console.WriteLine("Invalid or no keyword for SetMessage() method");
+       }
 }
   
   

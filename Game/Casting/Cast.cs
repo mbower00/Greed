@@ -29,7 +29,7 @@ namespace cse210_greed.Game.Casting{
         /// </summary>
         /// <param name="group">The group name</param>
         /// <returns>the list of actors, or an empty list if there aren't any</returns>
-        public List<Actor> GetAllActors(string group){
+        public List<Actor> GetAllActors(){
             List<Actor> results = new List<Actor>();
             foreach (List<Actor> result in actors.Values){
                 results.AddRange(result);
