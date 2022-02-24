@@ -40,9 +40,36 @@ namespace cse210_greed.Game.Casting
             return velocity;
         }
 
-        public void GetNextPosition()
+        public void GetNextPosition(int maxX, int maxY)
         {
+            int x = ((position.GetX() + velocity.GetX()) + maxX) % maxX;
+            int y = ((position.GetY() + velocity.GetY()) + maxY) % maxY;
+            position = new Location(x, y);
+        }
 
+        public void SetColor(Color color)
+        {
+            this.color = color;
+        }
+
+        public void SetPosition(Location position)
+        {
+            this.position = position;
+        }
+
+        public void SetText(string text)
+        {
+            this.text = text;
+        }
+
+        public void SetVelocity(Location velocity)
+        {
+            this.velocity = velocity;
+        }
+
+        public void SetFontSize(int fontSize)
+        {
+            this.fontSize = fontSize;
         }
 
 
