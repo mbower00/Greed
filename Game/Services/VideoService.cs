@@ -52,12 +52,13 @@ namespace cse210_greed.Game.Services
         /// </summary>
         public void DrawActor(Actor actor)
         {
-            int x = actor.GetPosistion().GetX();
-            int y = actor.GetPosistion().GetY();
+            string text = actor.GetText();
+            int x = actor.GetPosition().GetX();
+            int y = actor.GetPosition().GetY();
             int fontSize = actor.GetFontSize();
             Casting.Color c = actor.GetColor();
             Raylib_cs.Color color = ToRaylibColor(c);
-            Raylib.DrawText(x, y, fontSize, color);
+            Raylib.DrawText(text, x, y, fontSize, color);
         }
 
         /// <Summary>
