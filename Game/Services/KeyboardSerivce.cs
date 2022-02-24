@@ -22,9 +22,19 @@ namespace cse210_greed.Game.Services
         /// <summary>
         /// Converts keyboard presses into movement.
         /// </summary>
-        public Location GetDirection()
+        public Location GetDirection(string downText = "")
         {
             int dx = 0;
+            int dy = 0;
+            // string  = "";
+            if (downText == "down")
+            {
+                dy = -1;
+                Location direction1 = new Location(dx, dy);
+                direction1 = direction1.Scale(cellSize);
+
+                return direction1;
+            }
 
             if (Raylib.IsKeyDown(KeyboardKey.KEY_LEFT))
             {
@@ -36,7 +46,8 @@ namespace cse210_greed.Game.Services
                 dx = 1;
             }
 
-            Location direction = new Location(dx);
+
+            Location direction = new Location(dx, dy);
             direction = direction.Scale(cellSize);
 
             return direction;
