@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 
 
-public class Color
+public class Color /// creating the color ints and their values to be used privatly
     {
         private int red = 0;
         private int green = 0;
@@ -11,7 +11,7 @@ public class Color
 
 
 
-        public Color (int red, int green, int blue, int alpha){
+        public Color (int red, int green, int blue, int alpha){ /// assigning colors with names 
             this.red = red;
             this.green = green;
             this.blue = blue;
@@ -19,23 +19,23 @@ public class Color
 
         }
 
-        public int GetBlue(){
+        public int GetBlue(){ /// making blue usable
             return blue;
 
         }
 
-        public int GetGreen(){
+        public int GetGreen(){ /// making green usable
             return green;
 
         }
 
-        public int GetRed()
+        public int GetRed() /// making red usable
 {
             return red;
 
         }
 
-        public int GetAlpha(){
+        public int GetAlpha(){ /// making blue usable
             return alpha;
 
         }
