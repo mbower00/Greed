@@ -1,5 +1,5 @@
 using System;
-using System.Collections.Generic
+using System.Collections.Generic;
 using cse210_greed.Game.Casting;
 ///using cse210_greed.Game.Directing;
 using cse210_greed.Game.Services;
@@ -13,12 +13,12 @@ namespace cse210_greed.Game.Casting
   private string message = " ";
   private int fallSpeed = 0;   /// setting all of our private variables to be returned later
   private int pointValue = 0;
+       Random random = new Random();    /// this new method in artifact calculates the speed of on coming rocks and gems
 
 
 
 
    public void SetFallSpeed(int cap){  
-       Random random = new Random();    /// this new method in artifact calculates the speed of on coming rocks and gems
        fallSpeed = random.Next(0, cap); /// and gives it a random value from 1 to what ever cap is mentioned in cast
        
    }
