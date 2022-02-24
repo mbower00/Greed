@@ -79,11 +79,12 @@ else if (type == "gem"){
 
 
 
- }
+ 
  public string GetMessage(){
         return message;  /// makes getting a message possible
  }
-  }
+  
+}
 }
 
 ///OBJECT 3: Artifact
