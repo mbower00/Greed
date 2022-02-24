@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-// using System.IO;
-// using System.Linq;
 using cse210_greed.Game.Casting;
 using cse210_greed.Game.Directing;
 using cse210_greed.Game.Services;
+//if errors persist, look into adding libraries from RFK
 
 
 
@@ -27,10 +25,10 @@ namespace cse210_greed
         private static Color BANNER_WHITE = new Color(255, 255, 255, 150);
         private static int DEFAULT_GEMS = 20;
         private static int DEFAULT_ROCKS = 20;
-        private static int FALL_SPEED_CAP = 10;
+        private static int FALL_SPEED_CAP = 10; //the fall speed indicates the chance for delay in falling
 
         /// <summary>
-        /// /// 
+        /// Starts the program
         /// </summary>
         /// /// <param name="args"></param>
         static void Main(string[] args)
@@ -113,9 +111,9 @@ namespace cse210_greed
             }
             
             KeyboardService keyboardService = new KeyboardService(CELL_SIZE);
-            VideoService videoService = new VideoService(CAPTION, MAX_X, MAX_Y, CELL_SIZE, FRAME_RATE);
-            Director director = new Director; 
-            director.StartGame(keyboardService, videoService);
-
+            VideoService videoService = new VideoService(CAPTION /*The title of the Window*/, MAX_X, MAX_Y, CELL_SIZE, FRAME_RATE);
+            Director director = new Director(keyboardService, videoService); 
+            director.StartGame(cast);
         }
     }
+}
