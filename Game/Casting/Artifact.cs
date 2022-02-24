@@ -23,7 +23,7 @@ namespace cse210_greed.Game.Casting
        
    }
 
-public int GetFallSpeed(){
+public int GetFallSpeed(){ ///makes fallpeed usable
        return fallSpeed;   
    }
 
@@ -43,7 +43,7 @@ public int GetFallSpeed(){
         }
  }
 
- public int GetPointValue(){
+ public int GetPointValue(){ /// makes pointvalue usable
  return pointValue;
  }
  public void SetMessage(string type){
@@ -59,7 +59,7 @@ if (type == "rock" ){
        rockMessage.Add("this person controlling me is gunna kill me!");
        rockMessage.Add("My pride will never recover");
        int newMessage = random.Next(rockMessage.Count);
-       message = rockMessage[newMessage];
+       message = rockMessage[newMessage]; /// sets message to get random phrase from hitting a rock
 }
 else if (type == "gem"){
        List<string> gemMessage = new List<string>();   ///We will have a message display if they hit a gem and these wil be chosen at random to be displayed
@@ -71,7 +71,8 @@ else if (type == "gem"){
        gemMessage.Add("This is going into crypto stock!");
        gemMessage.Add("new whip here I come!");
        int newMessage = random.Next(gemMessage.Count);
-       message = gemMessage[newMessage];
+       message = gemMessage[newMessage];  /// sets message to get random phrase from collecting a gem
+}
 }
   
   
@@ -80,7 +81,7 @@ else if (type == "gem"){
 
  }
  public string GetMessage(){
-        return message;
+        return message;  /// makes getting a message possible
  }
   }
 }
