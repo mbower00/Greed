@@ -25,6 +25,7 @@ namespace cse210_greed.Game.Services
         public Location GetDirection()
         {
             int dx = 0;
+            int dy = 0;
 
             if (Raylib.IsKeyDown(KeyboardKey.KEY_LEFT))
             {
@@ -36,7 +37,7 @@ namespace cse210_greed.Game.Services
                 dx = 1;
             }
 
-            Location direction = new Location(dx);
+            Location direction = new Location(dx, dy);
             direction = direction.Scale(cellSize);
 
             return direction;
