@@ -23,9 +23,9 @@ namespace cse210_greed
         private static string CAPTION = "Greed";
         private static Color WHITE = new Color(255, 255, 255, 255);
         private static Color BANNER_WHITE = new Color(255, 255, 255, 150);
-        private static int DEFAULT_GEMS = 20;
-        private static int DEFAULT_ROCKS = 20;
-        private static int FALL_SPEED_CAP = 10; //the fall speed indicates the chance for delay in falling
+        private static int DEFAULT_GEMS = 40;
+        private static int DEFAULT_ROCKS = 100;
+        private static int FALL_SPEED_CAP = 3; //the fall speed indicates the chance for delay in falling
 
         /// <summary>
         /// Starts the program
@@ -48,7 +48,7 @@ namespace cse210_greed
             dialogueBanner.SetText("");
             dialogueBanner.SetFontSize(FONT_SIZE);
             dialogueBanner.SetColor(BANNER_WHITE);
-            dialogueBanner.SetPosition(new Location(CELL_SIZE, 0));
+            dialogueBanner.SetPosition(new Location(MAX_X / 2, 0));
             cast.AddActor("banner", dialogueBanner);
 
             //create the robot
@@ -56,7 +56,7 @@ namespace cse210_greed
             robot.SetText("#");
             robot.SetFontSize(FONT_SIZE);
             robot.SetColor(WHITE);
-            robot.SetPosition(new Location(MAX_X / 2, MAX_Y));
+            robot.SetPosition(new Location(MAX_X / 2, MAX_Y - CELL_SIZE));
             cast.AddActor("robot", robot);
 
             //create the gems

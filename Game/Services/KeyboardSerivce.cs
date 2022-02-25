@@ -29,7 +29,7 @@ namespace cse210_greed.Game.Services
             // string  = "";
             if (downText == "down")
             {
-                dy = -1;
+                dy = 1;
                 Location direction1 = new Location(dx, dy);
                 direction1 = direction1.Scale(cellSize);
 

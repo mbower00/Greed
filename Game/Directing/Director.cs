@@ -97,7 +97,7 @@ namespace cse210_greed.Game.Directing{
                 
                 if(!isCaughtRecently){
                     //the fall speed indicates the chance for delay in falling
-                    if(random.Next(0, artifact.GetFallSpeed() + 1) == 0){
+                    if(random.Next(0, artifact.GetFallSpeed() + 2) == 1){
                         //move the artifact down
                         artifact.SetVelocity(keyboardService.GetDirection("down"));
                         artifact.GetNextPosition(maxX, maxY);
